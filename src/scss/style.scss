@@ -1,0 +1,286 @@
+@use 'default';
+@use 'fonts';
+
+$main-black: #202020;
+$main-white: #FEFEFE;
+$main: #FF7800;
+$secondary: #00003D;
+$secondary100: #313E7C;
+$info: #4096FF;
+$light-blue: #F1F4F7;
+$stroke: #768797;
+$links: #9A9AB4;
+$dark-grey: #5A5A5A;
+$plus: #0CDF87;
+$border: #DFDFDF;
+
+body{
+    background-color: $main-white;
+}
+.container{
+    max-width: 1440px;
+    margin: 0 auto;
+}
+// стили для стандартной кнопки
+.btn{
+    padding: 10px 16px;
+    border-radius: 16px;
+    font-size: 16px;
+    font-weight: 700;
+    background-color: $main-white;
+    color: $main;
+    box-shadow: 0 2px 4px rgba($main-black, 0.2);
+    &.secondary{
+        background-color: $dark-grey;
+        color: $main-white;
+    }
+    &.info{
+        background-color: $info;
+        color: $main-white;
+    }
+    &.orange{
+        background-color: $main;
+        color: $main-white;
+    }
+    &.blue{
+        background-color: $secondary100;
+        color: $main-white;
+    }
+}
+
+.input-container{
+    width: 100%;
+    min-width: 465px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 16px;
+    background-color: $main-white;
+    border: 1px solid $stroke;
+    overflow: hidden;
+    .search{
+        width: 100%;
+        padding: 14px 20px;
+        color: $main-black;
+        &::placeholder{
+            color: $stroke;
+        }
+    }
+    .btn.orange{
+        min-width: fit-content;
+        box-shadow: none;
+        border-radius: 0;
+    }
+}
+
+.form-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 100vw;
+    height: 100vh;
+    form{
+        padding: 40px 80px;
+        background-color: $light-blue;
+        border-radius: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+        width: 33%;
+        &.register{
+            a{
+                width: 100%;
+            }
+            .text-center{
+                width: 90%;
+                text-align: center;
+            }
+        }
+        h3{
+            color: $secondary100;
+            font-size: 24px;
+        }
+        p{
+            color: $dark-grey;
+            font-size: 12px;
+        }
+        a{
+            font-size: 12px;
+            font-weight: 600;
+            color: $secondary100;
+        }
+        .row{
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            line-height: 12px;
+        }
+        .btn{
+            width: 100%;
+        }
+        .logos{
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+    }
+}
+
+
+header{
+    .sale{
+        background-color: $secondary100;
+        text-align: center;
+        color: $main-white;
+        font-size: 18px;
+        padding: 16px 0;
+        font-weight: 500;
+        font-style: italic;
+        .orange{
+            color: $main;
+        }
+    }
+    .navigation{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 32px;
+        .row, nav{
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+        .links{
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            a{
+                color: $dark-grey;
+            }
+        }
+        .nav-buttons{
+            display: flex;
+            gap: 12px;
+        }
+        .profile{
+            display: flex;
+            gap: 8px;
+            font-weight: 700;
+            color: $secondary100;
+        }
+    }
+}
+
+
+footer{
+    position: relative;
+    background-color: $secondary;
+    color: $main-white;
+    padding: 40px;
+    overflow: hidden;
+    height: 442px;
+    transition: height 0.4s ease-in-out;
+    
+    .footer-content {
+        position: absolute;
+        bottom: 40px; // Соответствует padding футера
+        left: 40px;
+        right: 40px;
+    }
+    
+    &.closed {
+        height: 139px;
+    }
+    .arrow-icon{
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, 0);
+        cursor: pointer;
+        z-index: 5;
+    }
+    // делаем отступ снизу у первых элементов в колонках
+    .col :first-child{
+        margin-bottom: 20px;
+    }
+    .line{
+        width: 90%;
+        height: 1px;
+        background-color: $stroke;
+        margin: 40px auto;
+    }
+    
+    h4{
+        font-size: 16px;
+    }
+    p{
+        font-size: 12px;
+        &.contact{
+            color: $links;
+            margin-top: 20px;
+        }
+    }
+    .info{
+        display: flex;
+        justify-content: space-between;
+    }
+    .links{
+        display: flex;
+        gap: 40px;
+        .link{
+            color: $links;
+            cursor: pointer;
+            &:not(:last-child){
+                margin-bottom: 8px;
+            }
+        }
+    }
+
+    .content{
+        display: flex;
+        justify-content: space-between;
+        .icons{
+            display: flex;
+            justify-content: flex-end;
+            gap: 16px;
+            align-items: center;
+            img{
+                margin: 0;
+            }
+        }
+        .input-container .search{
+            margin: 0;
+        }
+        .col:nth-child(2){
+            text-align: center;
+            p{
+                margin-top: 32px;
+            }
+        }
+        .col:nth-child(1), .col:nth-child(3){
+            width: 25%;
+        }
+        .col:nth-child(3){
+            text-align: right;
+        }
+    }
+}    
+// минимальная высота страницы - на всю высоту устройства
+.page{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: space-between;
+}
+
+// Заменяем анимацию на класс с transition
+// @keyframes closeFooter {
+//     0%{
+//         height: 442px;
+//     }
+//     100%{
+//         height: 139px;
+//     }
+// }
