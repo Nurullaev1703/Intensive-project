@@ -21,12 +21,14 @@ export const Header: FC<Props> = function Header({ isAuth = false }) {
       </div>
       <div className="navigation container">
         <div className="row">
-          <img src={VirusLogo} alt="" />
+          <Link to="/main">
+            <img src={VirusLogo} alt="" />
+          </Link>
           <TextField placeholder="Поиск по странице" />
         </div>
         <nav>
           <div className="links">
-            <Link to="/">Купить</Link>
+            <Link to="/products">Купить</Link>
             <Link to="/">Кастомизация</Link>
             <Link to="/">О нас</Link>
           </div>

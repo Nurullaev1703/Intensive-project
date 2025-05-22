@@ -30,6 +30,11 @@ body{
     background-color: $main-white;
     color: $main;
     box-shadow: 0 2px 4px rgba($main-black, 0.2);
+    transition: 300ms;
+    &:hover{
+        cursor: pointer;
+        scale: 1.05;
+    }
     &.secondary{
         background-color: $dark-grey;
         color: $main-white;
@@ -130,6 +135,10 @@ body{
 
 
 header{
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: $main-white;
     .sale{
         background-color: $secondary100;
         text-align: center;
@@ -275,12 +284,316 @@ footer{
     justify-content: space-between;
 }
 
-// Заменяем анимацию на класс с transition
-// @keyframes closeFooter {
-//     0%{
-//         height: 442px;
-//     }
-//     100%{
-//         height: 139px;
-//     }
-// }
+.profile-info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $light-blue;
+    padding: 60px 0;
+    .profile{
+        width: fit-content;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin-right: 15%;
+        gap: 12px;
+        h3{
+            font-size: 20px;
+            color: $main-black;
+        }
+    }
+    .info{
+        max-width: 640px;
+        .links{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            li{
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                color: $stroke;
+                &:first-child{
+                    color: $main;
+                    font-weight: 700;
+                }
+            }
+        }
+        form{
+            padding: 32px;
+            background-color: $main-white;
+            border-radius: 20px;
+            h3{
+                font-size: 24px;
+                color: $secondary100;
+                margin-bottom: 24px;
+            }
+            .input-container:nth-child(3){
+                margin-top: 24px;
+                margin-bottom: 12px;
+            }
+            .password{
+                padding-left: 12px;
+                font-size: 12px;
+                font-weight: 600;
+                color: $secondary100;
+                margin-bottom: 40px;
+            }
+            .row{
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                font-size: 14px;
+                color: $dark-grey;
+                &.news{
+                    margin-bottom: 12px;
+                    padding-bottom: 12px;
+                    border-bottom: 1px solid $stroke;
+                }
+            }
+        }
+    }
+}
+
+.main-banners{
+    margin-bottom: 40px;
+    .banner{
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch;
+        .text{
+            h1{
+                color: $main;
+                font-size: 64px;
+                span{
+                    color: $main-black;
+                }
+            }
+            .context{
+                margin: 24px 0;
+                color: $dark-grey;
+                font-size: 20px;
+            }
+            .row{
+                display: flex;
+                gap: 24px;
+            }
+            img{
+                margin-top: 20%;
+            }
+        }
+        .info-text{
+            background-color: $light-blue;
+            padding: 100px 72px;
+            .description{
+                font-size: 20px;
+                color: $main;
+                span{
+                    color: $secondary100;
+                }
+            }
+            .title{
+                margin: 12px 0 40px;
+                font-size: 40px;
+                color: $dark-grey;
+                span{
+                    color: $main;
+                }
+            }
+        }
+    }
+}
+
+.choose{
+    margin-bottom: 40px;
+    h2{
+        font-size: 40px;
+        color: $dark-grey;
+        text-align: center;
+    }
+    .cards{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 60px;
+        .card{
+            p{
+                text-align: center;
+                color: $dark-grey;
+                font-size: 20px;
+            }
+        }
+    }
+}
+
+.graphics{
+    position: relative;
+    .background{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        aspect-ratio: 2 / 1;
+        z-index: 0;
+    }
+    .dimmer{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        aspect-ratio: 2 / 1;
+        z-index: 1;
+        mix-blend-mode: multiply;
+        opacity: 0.4;
+    }   
+    .content{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        aspect-ratio: 2 / 1;
+        z-index: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        color: $main-white;
+    }
+    .photo{
+        margin-top: 700px;
+    }
+    h1{
+        font-size: 96px;
+        margin-bottom: 20px;
+    }
+}
+
+.total-security{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 28px;
+    .text{
+        h2{
+            font-size: 48px;
+            width: 60%;
+        }
+        p{
+            width: 70%;
+            color: $dark-grey;
+            font-size: 20px;
+            margin: 32px 0 24px;
+        }
+    }
+}
+
+
+.product-banner{
+    width: 1440px;
+    height: 566px;
+    margin-bottom: 60px;
+    .background, .dimmer, .content{
+        height: 100%;
+    }
+    .content{
+        align-items: flex-start;
+        left: 32px;
+    }
+    h1{
+        font-size: 64px;
+        width: 50%;
+        text-align: left;
+        margin-bottom: 24px;
+    }
+}
+
+.product-cards{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 60px;
+    flex-wrap: wrap;
+    margin-bottom: 60px;
+    .card{
+        position: relative;
+        width: 24%;
+        border-radius: 20px;
+        background-color: $main-white;
+        border: 1px solid $stroke;
+        &.full{
+            height: 852px;
+        }
+        &:nth-child(3n+2){
+            border: 2px solid $main;
+        }
+        .product-image{
+            width: 100%;
+            height: 243px;
+            object-fit: contain;
+        }
+        .content{
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            .title{
+                font-size: 24px;
+                font-weight: 700;
+                color: $secondary100;
+                text-transform: uppercase;
+                text-align: center;
+                width: 70%;
+                margin: 0 auto;
+            }
+            .description{
+                font-size: 12px;
+                color: $dark-grey;
+                text-align: center;
+                height: 42px;
+                text-overflow: ellipsis;
+            }
+            .prices{
+                display: flex;
+                align-items: baseline;
+                gap: 4px;
+                .sale-price{
+                    font-size: 40px;
+                    font-weight: 700;
+                    color: $main;
+                }
+                .old-price{
+                    font-size: 20px;
+                    color: $dark-grey;
+                    text-decoration: line-through;
+                }
+            }
+            .advantages{
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                .row{
+                    display: flex;
+                    gap: 8px;
+                    font-size: 14px;
+                    color: $dark-grey;
+                }
+            }
+        }
+        .platforms{
+            position: absolute;
+            bottom: 0;
+            left:  50%;
+            transform: translateX(-50%);
+            height: 58px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 24px;
+            border-top: 1px solid $stroke;
+            width: 80%;
+        }
+    }
+}
