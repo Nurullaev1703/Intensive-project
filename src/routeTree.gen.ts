@@ -15,6 +15,8 @@ import { Route as RegisterImport } from './routes/register'
 import { Route as ProfileImport } from './routes/profile'
 import { Route as ProductsImport } from './routes/products'
 import { Route as MainImport } from './routes/main'
+import { Route as CustomerImport } from './routes/customer'
+import { Route as AboutImport } from './routes/about'
 import { Route as IndexImport } from './routes/index'
 
 // Create/Update Routes
@@ -43,6 +45,18 @@ const MainRoute = MainImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const CustomerRoute = CustomerImport.update({
+  id: '/customer',
+  path: '/customer',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const AboutRoute = AboutImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const IndexRoute = IndexImport.update({
   id: '/',
   path: '/',
@@ -58,6 +72,20 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutImport
+      parentRoute: typeof rootRoute
+    }
+    '/customer': {
+      id: '/customer'
+      path: '/customer'
+      fullPath: '/customer'
+      preLoaderRoute: typeof CustomerImport
       parentRoute: typeof rootRoute
     }
     '/main': {
@@ -95,6 +123,8 @@ declare module '@tanstack/react-router' {
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/customer': typeof CustomerRoute
   '/main': typeof MainRoute
   '/products': typeof ProductsRoute
   '/profile': typeof ProfileRoute
@@ -103,6 +133,8 @@ export interface FileRoutesByFullPath {
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/customer': typeof CustomerRoute
   '/main': typeof MainRoute
   '/products': typeof ProductsRoute
   '/profile': typeof ProfileRoute
@@ -112,6 +144,8 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/customer': typeof CustomerRoute
   '/main': typeof MainRoute
   '/products': typeof ProductsRoute
   '/profile': typeof ProfileRoute
@@ -120,15 +154,39 @@ export interface FileRoutesById {
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/main' | '/products' | '/profile' | '/register'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/customer'
+    | '/main'
+    | '/products'
+    | '/profile'
+    | '/register'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/main' | '/products' | '/profile' | '/register'
-  id: '__root__' | '/' | '/main' | '/products' | '/profile' | '/register'
+  to:
+    | '/'
+    | '/about'
+    | '/customer'
+    | '/main'
+    | '/products'
+    | '/profile'
+    | '/register'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/customer'
+    | '/main'
+    | '/products'
+    | '/profile'
+    | '/register'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  CustomerRoute: typeof CustomerRoute
   MainRoute: typeof MainRoute
   ProductsRoute: typeof ProductsRoute
   ProfileRoute: typeof ProfileRoute
@@ -137,6 +195,8 @@ export interface RootRouteChildren {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  CustomerRoute: CustomerRoute,
   MainRoute: MainRoute,
   ProductsRoute: ProductsRoute,
   ProfileRoute: ProfileRoute,
@@ -154,6 +214,8 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
+        "/about",
+        "/customer",
         "/main",
         "/products",
         "/profile",
@@ -162,6 +224,12 @@ export const routeTree = rootRoute
     },
     "/": {
       "filePath": "index.tsx"
+    },
+    "/about": {
+      "filePath": "about.tsx"
+    },
+    "/customer": {
+      "filePath": "customer.tsx"
     },
     "/main": {
       "filePath": "main.tsx"

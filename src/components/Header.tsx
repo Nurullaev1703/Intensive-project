@@ -29,8 +29,8 @@ export const Header: FC<Props> = function Header({ isAuth = false }) {
         <nav>
           <div className="links">
             <Link to="/products">Купить</Link>
-            <Link to="/">Кастомизация</Link>
-            <Link to="/">О нас</Link>
+            <Link to="/customer">Кастомизация</Link>
+            <Link to="/about">О нас</Link>
           </div>
           {isAuth ? (
             <Link to="/profile" className="profile">
